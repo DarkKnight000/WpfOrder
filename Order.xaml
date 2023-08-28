@@ -1,0 +1,171 @@
+﻿<Window x:Class="WpfApp1.Order"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen"
+        Title="Order" Height="800" Width="550">
+    <Grid>
+        <Label x:Name="label" Content="Заказ № _______________" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0" FontSize="16"/>
+        <Grid 
+            x:Name="Grid_client"
+            Margin="10,70,0,0"
+            >
+            <ComboBox 
+                x:Name="comboBox" 
+                Style="{StaticResource MaterialDesignComboBox}"
+                HorizontalAlignment="Left" 
+                VerticalAlignment="Top" 
+                Width="250" 
+                Margin="110,0,0,0"
+                Padding="0"
+            
+                MaxDropDownHeight="300"
+
+                IsEditable="True"
+                VirtualizingPanel.ScrollUnit="Pixel"
+                ScrollViewer.CanContentScroll="False" 
+            
+                SelectionChanged="comboBox_SelectionChanged"
+        />
+            <Label x:Name="label1" Content="Выберите клиента:" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="0"/>
+        </Grid>
+        <Label x:Name="label2" Content="Данные заказчика:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,105,0,0" FontSize="14" Padding="0"/>
+        <Label x:Name="label3" Content="ФИО:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,130,0,0" Padding="0"/>
+        <Label x:Name="label4" Content="Номер телефона:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,150,0,0" Padding="0"/>
+        <Label x:Name="labe5" Content="Email:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,170,0,0" Padding="0"/>
+        <Label x:Name="labe5_Copy1" Content="Дата:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,200,0,0" Padding="0"/>
+        <Label x:Name="labe5_Copy2" Content="Статус заказа:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,220,0,0" Padding="0"/>
+        <Label 
+            x:Name="label_FIO" 
+            Content="     " 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top"
+            Margin="130,130,0,0" 
+            Padding="0" 
+            FontSize="14" 
+            Foreground="Black"
+        />
+        <Label 
+            x:Name="label_Phone" 
+            Content="     " 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Margin="130,150,0,0" 
+            Padding="0" 
+            FontSize="14"
+            Foreground="Black"
+        />
+        <Label 
+            x:Name="label_Email"
+            Content="     " 
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Margin="130,170,0,0" 
+            Padding="0" 
+            FontSize="14"
+            Foreground="Black"
+        />
+        <Label 
+            x:Name="label_Date" 
+            Content="     " 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Margin="130,200,0,0" 
+            Padding="0" 
+            FontSize="14"
+            Foreground="Black"
+         />
+        <Label 
+            x:Name="label_OrderStatus" 
+            Content="В обработке" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Margin="130,220,0,0" 
+            Padding="0" 
+            FontSize="14"
+            Foreground="Gray"
+        />
+        <Label x:Name="labe5_Copy" Content="Список товаров:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30,250,0,0" Padding="0"/>
+        <Label x:Name="label5" Content="Подпись: ________________________________________" HorizontalAlignment="Left" Margin="10,0,0,30" VerticalAlignment="Bottom"/>
+        <Grid Margin="10,265,10,1" VerticalAlignment="Top">
+            <StackPanel>
+                <DataGrid 
+                    x:Name="dataGrid" 
+                    Height="Auto" 
+                    MaxHeight="350"
+                    VerticalAlignment="Top" 
+                    CanUserResizeColumns="False" 
+                    CanUserSortColumns="False"
+                    CanUserReorderColumns="False"
+                    CanUserAddRows="False"
+                    CanUserDeleteRows="False" 
+                    CanUserResizeRows="False"
+                    IsReadOnly="True"
+                    Width="Auto"
+        />
+                <StackPanel Margin="10,5,0,0" Orientation="Horizontal">
+                    <Label x:Name="label6" Content="Всего: " HorizontalAlignment="Left" Margin="0" VerticalAlignment="Bottom" FontSize="14" Padding="0,0,0,2"/>
+
+                    <Label 
+                        x:Name="label_totalCost" 
+                        Content="     "
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Bottom" 
+                        Margin="5,0,0,1" 
+                        Padding="0" FontSize="16"
+        />
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+        <Button 
+            x:Name="button2" 
+            Content="Сохранить"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom" 
+            Margin="0,0,0,22" Height="28"
+        />
+        <Button 
+            x:Name="button" 
+            Content="Оформить заказ" 
+            HorizontalAlignment="Center" 
+            Margin="0,0,0,20"
+            VerticalAlignment="Bottom"
+            Click="button_Click"
+        />
+        <Button x:Name="button1" Content="Назад" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Height="Auto" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="12" Click="button1_Click"/>
+        <ComboBox 
+            x:Name="comboBox1" 
+            HorizontalAlignment="Left" 
+            VerticalAlignment="Top" 
+            Width="150" 
+            Margin="130,218,0,0"  
+            Padding="0,2" 
+            Foreground="Gray"
+            FontSize="14" 
+            Visibility="Hidden"
+            SelectionChanged="comboBox1_SelectionChanged">
+            <ComboBoxItem 
+                Content="В обработке" 
+                Foreground="Gray"
+            />
+            <ComboBoxItem 
+                Content="Завершён"
+                Foreground="Green"
+            />
+            <ComboBoxItem 
+                Content="Отменён"
+                Foreground="Red"
+            />
+            <ComboBoxItem 
+                Content="Ожидает оплаты"
+                Foreground="Yellow"
+            />
+        </ComboBox>
+
+    </Grid>
+</Window>
